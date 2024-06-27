@@ -1,0 +1,5 @@
+# Deferred Actions
+
+In the example above, the code inside of the defer block is executed before exiting the body of the if statement. First, the code in the if statement runs, which increments score by five. Then, before exiting the if statement’s scope, the deferred code is run, which prints score.
+
+The code inside of the defer always runs, regardless of how the program exits that scope. That includes code like an early exit from a function, breaking out of a for loop, or throwing an error. This behavior makes defer useful for operations where you need to guarantee a pair of actions happen — like manually allocating and freeing memory, opening and closing low-level file descriptors, and beginning and ending transactions in a database — because you can write both actions next to each other in your code. 
